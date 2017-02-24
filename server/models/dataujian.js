@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var dataujianSchema = new Schema({
   letter    : String,
-  frequency : String,
+  frequency : Boolean,
 },{
   timestamps: true
 });

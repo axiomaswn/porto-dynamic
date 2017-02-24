@@ -3,7 +3,7 @@ module.exports = {
   create : function(req, res, next){
     DataUjian.create({
       letter     : req.body.letter,
-      frequency     : req.body.frequency
+      frequency     : false
     }, function (err, data){
       res.send(data);
     })
@@ -40,7 +40,7 @@ module.exports = {
 
   update : function(req, res, next) {
     DataUjian.findOneAndUpdate({_id: req.params.id},{
-      letter     : req.body.letter,
+      // letter     : req.body.letter,
       frequency     : req.body.frequency
     })
       .then(function(result){

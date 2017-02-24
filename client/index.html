@@ -32,7 +32,7 @@
             <tr>
               <td>#</td>
               <td>Activity</td>
-              <td>Status</td>
+              <td>Completed</td>
               <td>Actions</td>
             </tr>
           </thead>
@@ -42,7 +42,7 @@
               <td>{{halaman1.letter}}</td>
               <td>{{halaman1.frequency}}</td>
               <td>
-                <button class="ui teal button" v-on:click='getHalaman1(halaman1._id)' onclick="edit()"  >Update</button>
+                <button class="ui teal button" v-on:click='updateDataHalaman1(halaman1._id)'  >Update</button>
                 <button class="ui red button" v-on:click='deleteDataHalaman1(halaman1._id)' >Delete</button>
               </td>
             </tr>
@@ -170,8 +170,8 @@
             url: `http://localhost:3000/dataujian/${xxx}`,
             type: 'PUT',
             data: {
-              letter: app.get.letter,
-              frequency: app.get.frequency
+              // letter: app.get.letter,
+              frequency: true
             },
             success: function(data) {
               app.loadHalaman1()
