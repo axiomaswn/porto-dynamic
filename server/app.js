@@ -8,13 +8,12 @@ const mongoose = require('mongoose');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var dataujian = require('./routes/dataujian');
-var datadate = require('./routes/datadate');
 var passport = require('passport')
 require('dotenv').config()
 const cors = require('cors');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/yoma-ujian')
+mongoose.connect('mongodb://localhost:27017/yoma-dynamic')
 const db = mongoose.connection
 
 db.on("error", console.error.bind(console, "koneksi bermasalah"))
@@ -34,7 +33,7 @@ app.set('view engine', 'ejs');
 
 
 app.use(passport.initialize())
-require('./config/passport')(passport)
+// require('./config/passport')(passport)
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -46,7 +45,6 @@ app.use(cors());
 app.use('/', index);
 app.use('/users', users);
 app.use('/dataujian', dataujian);
-app.use('/datadate', datadate);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
